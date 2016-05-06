@@ -1,19 +1,23 @@
 Generate a coupon
 
 <%= form_tag(generate_coupons_url, method: "get") do %>
+  <%= label_tag(:shopify, "Subdomain:") %>
+  <%= text_field_tag(:shopify) %>
   <%= label_tag(:email, "Email:") %>
   <%= text_field_tag(:email) %>
   <%= label_tag(:password, "Password:") %>
-  <%= text_field_tag(:password) %>
+  <%= password_field_tag(:password) %>
   <br>
+  <%= label_tag("Discount Code") %>
+  <%= text_field_tag(:discount_code) %>
   <%= label_tag("Discount Type") %>
   <%= radio_button_tag(:discount_type, "percentage") %>
   <%= label_tag(:percentage, "Percentage") %>
-  <%= radio_button_tag(:discount_type, "fixed") %>
+  <%= radio_button_tag(:discount_type, "fixed_amount") %>
   <%= label_tag(:fixed, "Fixed") %>
   <br>
-  <%= label_tag(:value, "Value:") %>
-  <%= text_field_tag(:value) %>
+  <%= label_tag(:discount_value, "Value:") %>
+  <%= text_field_tag(:discount_value) %>
   <%= label_tag(:minimum_order_amount, "Minimum Order Amount:") %>
   <%= text_field_tag(:minimum_order_amount) %>
   <%= submit_tag("Generate") %>
