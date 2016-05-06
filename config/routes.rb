@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :coupons, only: [:show] do
+    collection do
+      get 'home'
+      get 'generate'
+    end
+  end
+
+  root 'coupons#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
